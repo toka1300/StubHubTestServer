@@ -1,3 +1,5 @@
+import fetch from 'node-fetch'
+
 const parseEventInfo = (data) => {
   const jsonMatch = data.match(/<script id="index-data" type="application\/json">\s*(.*?)\s*<\/script>/);
   if (!jsonMatch || jsonMatch.length < 2) return;
