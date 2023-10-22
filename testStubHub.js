@@ -15,11 +15,15 @@ const parseEventInfo = (data) => {
 }
 
 const fetchData = async () => {
-  const url = `https://www.stubhub.ca/event/151779214/?quantity=1`;
-  const response = await fetch(url);
-  const data = await response.text();
-  const priceObject = parseEventInfo(data);
-  return priceObject
+  try {
+    const url = `https://www.stubhub.ca/event/151779214/?quantity=1`;
+    const response = await fetch(url);
+    const data = await response.text();
+    const priceObject = parseEventInfo(data);
+    return priceObject
+  } catch (e) {
+    console.log('Error:', e);
+  }
 }
 
 const getResults = async () => {
